@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import Home from '@/components/Movie'
+import Book from '@/components/Book'
+import Music from '@/components/Music'
 
 Vue.use(Router)
 
@@ -8,8 +10,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/book',
+      name: 'Book',
+      component: Book
+    },
+    {
+      path: '/music',
+      name: 'Music',
+      component: Music
     }
   ]
 })

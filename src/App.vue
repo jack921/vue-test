@@ -2,7 +2,7 @@
   <div id="app">
     <AppBar class="header"></AppBar>
     <router-view class="content"></router-view>
-    <BottomNavigation></BottomNavigation>
+    <BottomNavigation class="bottom_nav"></BottomNavigation>
   </div>
 </template>
 
@@ -35,8 +35,18 @@ export default {
   right: 0;
   z-index:2;
 }
+
 .content{
   margin-top: 60px;
+  margin-bottom: 80px;
+}
+
+.bottom_nav {
+  height: 5rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 </style>
