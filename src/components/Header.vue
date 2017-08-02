@@ -1,13 +1,12 @@
 <template>
   <mu-appbar title="DouBan">
-    <mu-icon-button icon="menu" slot="left"/>
+    <mu-icon-button icon="menu" slot="left"  @click="toggle"/>
     <mu-flat-button label="更多" slot="right"/>
-    <mu-drawer :open="state" :docked="false" @close="toggle()">
-      <mu-list @itemClick="docked ? '' : toggle()">
-        <mu-list-item title="Menu Item 1"/>
-        <mu-list-item title="Menu Item 2"/>
-        <mu-list-item title="Menu Item 3"/>
-        <mu-list-item v-if="docked" @click.native="open = false" title="Close"/>
+    <mu-drawer :open="state" :docked="true" @close="toggle()">
+      <mu-list @itemClick="true ? '' : toggle()">
+        <mu-list-item title="Menu Item 1" @click.native="itemToggle('item')"/>
+        <mu-list-item title="Menu Item 2" @click.native="itemToggle('item2')"/>
+        <mu-list-item title="Menu Item 3" @click.native="itemToggle('item3')"/>
       </mu-list>
     </mu-drawer>
   </mu-appbar>
@@ -22,8 +21,11 @@
      },
      methods:{
        toggle: function () {
-          console.log("jack")
           this.state=!this.open
+       },
+       itemToggle: function (data) {
+          console.log(data)
+          this.state=false
        }
      }
   }
