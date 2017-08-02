@@ -1,14 +1,19 @@
 <template>
   <div >
     <mu-row class="mu_row">
-      <mu-col width="50" desktop="25" table="25" v-for="key in data">
+      <mu-col width="30" desktop="20" table="25" v-for="movie in movies"  >
+        <router-link :to="{name:'MovieDetails'}">
         <mu-card class="card">
-          <img class="card_img" v-on:click="fetchData" src="../assets/logo.png">
-          <p class="card_txt">权利的游戏:{{key.name}}</p>
+          <img class="card_img" v-bind:src='movie.images.large'>
+          <div class="card_txt">
+            <p style="float: left;margin-left: 10px">{{ movie.title }}</p>
+            <p style="color:#ff9955;float: left;margin-left: 10px"><span>评分:{{ movie.rating.average }}</span></p>
+            <p style="float: right;margin-right: 15px">类型:{{ movie.genres[0]}}</p>
+          </div>
         </mu-card>
+        </router-link>
       </mu-col>
     </mu-row>
-    <mu-toast v-if="toast" message="一段简单的文本" />
   </div>
 </template>
 
@@ -17,43 +22,31 @@ export default {
   name: 'movie',
   data(){
     return {
-      data:[
-        {name:'jack1'},
-        {name:'jack2'},
-        {name:'jack3'},
-        {name:'jack4'},
-        {name:'jack5'},
-        {name:'jack6'},
-        {name:'jack7'}
-      ],
+      movies:null,
       toast: false
     }
   },
   mounted() {
     this.fetchData();
   },
-  beforeUpdate() {
-    this.fetchData();
-  },
   methods: {
     fetchData() {
-      const url='https://api.douban.com/v2/movie/in_theaters';
-//    http://api.douban.com/v2
       const HOST = '/api/';
-
+      const self=this;
       this.axios.get(HOST+'/movie/in_theaters')
         .then(function (res) {
-          console.log(res)
           if(res.status==200){
-            console.log(res.data.data)
-          }else{
-            console.log("console")
-         }
+            self.movies = [];
+            self.movies=res.data.subjects;
+          }
       })
       this.toast=true
     },
     goBack() {
       this.$router.go(-1);
+    },
+    change: function () {
+      const self=this;
     }
   }
 }
@@ -65,16 +58,15 @@ export default {
     padding: 15px;
   }
   .card{
-    height: 300px;
-    margin: 10px;
+    height: 500px;
+    margin: 8px;
   }
   .card_img{
     width: 100%;
-    height:250px;
+    height:450px;
   }
   .card_txt{
     width: 100%;
     height: 50px;
-    text-align: center;
   }
 </style>
