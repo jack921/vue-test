@@ -7,7 +7,10 @@ Vue.use(Vuex);
 
 
 const state = {
-    tabValue: 'JACK'
+    tabValue: 'JACK',
+    top250:null,
+    weekly:null,
+    usmovie:null
 }
 
 export default new Vuex.Store({

@@ -4,9 +4,9 @@
     <mu-flat-button label="更多" slot="right"/>
     <mu-drawer :open="state" :docked="true" @close="toggle()">
       <mu-list @itemClick="true ? '' : toggle()">
-        <mu-list-item title="Menu Item 1" @click.native="itemToggle('item')"/>
-        <mu-list-item title="Menu Item 2" @click.native="itemToggle('item2')"/>
-        <mu-list-item title="Menu Item 3" @click.native="itemToggle('item3')"/>
+        <mu-list-item title="电影" @click.native="itemToggle('电影')"/>
+        <mu-list-item title="书籍" @click.native="itemToggle('书籍')"/>
+        <mu-list-item title="音乐" @click.native="itemToggle('音乐')"/>
       </mu-list>
     </mu-drawer>
   </mu-appbar>
