@@ -9,8 +9,9 @@ Vue.use(Vuex);
 const state = {
     tabValue: 'JACK',
     top250:null,
-    weekly:null,
-    usmovie:null
+    comingsoon:null,
+    usmovie:null,
+    movie:null
 }
 
 export default new Vuex.Store({

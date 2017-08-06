@@ -8,11 +8,13 @@ export default {
     ['changeTop']({ commit },val){
         commit('changeTop',val);
     },
-    ['changeWeekly']({commit},val){
-        commit('changeWeekly',val);
+    ['comingSoon']({commit},val){
+        commit('comingSoon',val);
     },
     ['changeUs']({commit},val){
       commit('changeUs',val);
+    },
+    ['movie']({commit},val){
+      commit("movie",val);
     }
-
 }

@@ -22,8 +22,7 @@ export default {
   name: 'movie',
   data(){
     return {
-      movies:null,
-      toast: false
+      movies:null
     }
   },
   mounted() {
@@ -33,20 +32,20 @@ export default {
     fetchData() {
       const HOST = '/api/';
       const self=this;
-      this.axios.get(HOST+'/movie/in_theaters')
-        .then(function (res) {
-          if(res.status==200){
-            self.movies = [];
-            self.movies=res.data.subjects;
-          }
-      })
-      this.toast=true
+      this.movies=this.$store.state.movie;
+      if(this.movies==null){
+        this.axios.get(HOST+'/movie/in_theaters')
+          .then(function (res) {
+            if(res.status==200){
+              self.movies = [];
+              self.movies=res.data.subjects;
+              self.$store.dispatch("movie",res.data.subjects);
+            }
+          })
+      }
     },
     goBack() {
       this.$router.go(-1);
-    },
-    change: function () {
-      const self=this;
     }
   }
 }

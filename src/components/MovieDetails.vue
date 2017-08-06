@@ -1,5 +1,6 @@
 <template>
+    <div>
+        <h1>Hello Jack</h1>
 
-  <p>MovieDetails</p>
-
+    </div>
 </template>

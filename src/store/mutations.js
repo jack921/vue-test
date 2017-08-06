@@ -8,11 +8,16 @@ export default {
     ['changeTop'](state,val){
       state.top250=val;
     },
-    ['changeWeekly'](state,val){
-      state.weekly=val;
+    ['comingSoon'](state,val){
+      state.comingsoon=val;
     },
     ['changeUs'](state,val){
       state.usmovie=val;
+    },
+    ['movie'](state,val){
+      state.movie=val;
     }
+
+
 }
 
