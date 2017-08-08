@@ -47,7 +47,7 @@ export default new Router({
       component: Music
     },
     {
-      path: '/moviedetails',
+      path: '/movie/details',
       name: 'MovieDetails',
       component: MovieDetails
     }
